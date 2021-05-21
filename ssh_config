@@ -1,0 +1,18 @@
+
+# Default github account : Naresh
+Host github.com
+	HostName github.com
+	IdentityFile ~/.ssh/id_ed25519
+	IdentitiesOnly yes
+	
+# Default BitBucket account : Naresh
+Host bitbucket.org
+	HostName bitbucket.org
+	IdentityFile ~/.ssh/id_rsa
+	IdentitiesOnly yes	
+
+# Default github account : Dhananjay
+Host github-dhananjay
+	HostName github.com
+	IdentityFile ~/.ssh/dhananjay_private_key
+	IdentitiesOnly yes
