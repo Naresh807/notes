@@ -1,0 +1,177 @@
+
+
+git config  --global user.name "Naresh Kumar"
+git config  --global user.email nareshkumar.pilani@gmail.com
+git config  --local user.name "Naresh Kumar"
+git config  --local user.email nareshkumar.pilani@gmail.com
+
+git config user.name
+git config user.email
+
+ls -a  [list all files including hidden]
+
+
+git init  [intializses new repository]
+git status
+
+git add     [group specfic changes for commit]
+git commit 
+git commit -amend
+
+https://www.toptal.com/developers/gitignore
+
+git log 
+git log --oneline
+
+http://git-scm.com/docs
+
+git branch
+git branch <branch-name>
+git branch -d <branch-name>
+git branch -D <branch-name>  [force ful delete]
+git branch -m <branch-name>   [for rename]
+
+git switch <branch-name>
+git switch -c <branch-name>  [create and switch branch]
+git checkout <branch-name>
+
+
+git merge <branch-name>  [fast forward merge]
+
+git diff            [Compare staging area and working area]
+git diff head       [all changes stage and unstage since head]
+git diff staged
+git diff head [filename]
+git diff staged [filename]
+git diff branch1 branch2
+git diff <tag1> <tag2>
+
+git stash
+git stash pop
+
+git checkout <comit-hash>
+git checkout HEAD~1                  [We can create branch from this point]
+git checkout HEAD FileName
+git checkout origin/master
+git checkout <tag>
+git checkout HEAD@{qualifiers}   [reflogs]
+
+git restore <fileName>
+git restore --source HEAD~1 <fileName>
+git restore --staged <fileName>            [for unstagging file from stage area]
+
+git reset <comit-hash>   [will reset repository to specific commit
+							It will remove changes for repository. In working directory changes will remain]
+git reset --hard <comit-hash>  [will reset repositoryand working directory to specfic commit]
+git reset --hard master@{qualifier}
+
+git revert <comit-hash>   [Reset actually moved pointer to specific comit-hash
+						whereas revert create new commit which reverse/undo changes for a comit]
+						
+******************************************************************************************
+Github  -- It is the hosting platform for Git repositories 
+
+git clone <url>
+
+##############################################################################
+ls -al ~/.ssh          [to check if SSH key is already install]
+
+Steps for generating SSH key  [https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent]
+
+Generate SSH key  :: ssh-keygen -t ed25519 -C "nareshkumar.pilani@gmail.com"
+Add SSH key to SSH agent :: 
+				Start SSH agent :: eval `ssh-agent -s`
+				Add SSH key to agent :: ssh-add ~/.ssh/id_ed25519
+
+				Copy SSH public key to clipboard :: clip < ~/.ssh/id_ed25519.pub
+In Github Go to	Profile>>Setting>SSH Key	
+################################################################################
+Bit Bucket
+ssh-keygen   [to generate private and public key]
+Add SSH key to SSH agent :: 
+				Start SSH agent :: eval `ssh-agent -s`
+				Add SSH key to agent :: ssh-add ~/.ssh/id_rsa
+
+Copy SSH public key to clipboard :: clip < ~/.ssh/id_rsa.pub
+ssh -T git@bitbucket.org
+ssh -T git@github.com
+ssh -T git@github-dhananjay
+
+#################################################################################
+
+git remote 
+git remote -v
+git remote add <name> <url>
+git remote rename <odd-name> <new-name>
+
+
+git push <remote> <branch>
+git push <remote> <local-branch>:<remote-branch>
+git push -u <remote> <branch>    [It is used to remmember/upstream branch, after that we can use "git push"]
+
+git branch -r  [display list of remote branches]
+
+git fetch <remote>
+git fetch <remote> <branch>
+
+git pull <remote> <branch>
+
+README.md  [mark down]    --- http://markdown-it.github.io/
+
+*****************************************************************
+https://gist.github.com/oanhnn/80a89405ab9023894df7  [How to use two github account from same computer]
+
+ssh -T git@github-dhananjay
+
+git clone git@github-dhananjay:DhananjayChoudhary/FeatureBranchDemo.git  
+
+git config user.name  "DhananjayChoudhary"
+git config user.email cdhananjay9299@gmail.com
+******************************************************************
+git switch <branch-name>   [ First switch to branch where you are looking to rebase, typically feature branch]
+git rebase <branch-name>   
+
+git rebase -i Head~1  [  -i = interactive]
+git commit -amend  [to update last commit]
+ 
+git tag
+git tag -l "*beta*"   
+git tag <tag-name>  [to create light weight tag]
+git tag -a <tag-name>  [to create annoted tag]
+git show <tag-name>
+git tag <tag-name> <commit-hash>   [to tag pervious commit]
+git tag -f <tag-name> <commit-hash> [to move the tag]
+git tag -d <tag-name>  [to delete tag]
+git push <remote> <tag-name>  [by default tag does not push to remote repository]
+git push --tags [to push all tags]
+
+
+git hash-object <file>  [will return unique SHA-1 hash]
+git hash-object <file> -w
+echo "hi" | git hash-object --stdin
+echo "hi" | git hash-object --stdin -w
+git cat-file -p <object-hash>
+git cat-file -p <object-hash>  >  <new-fileName>
+
+Blobs : store contain of a file
+Tree  : store contain of a file, it can refer blob or other trees
+Commit: It stores
+		 tree   |  c3574cs
+		 parent |  jkh876jv
+		 Author |
+		 committer |  
+		 message |
+		 
+git reflog show HEAD
+git reflog show <branch-name>
+
+git reflog master@(one.week.ago}
+git checkout bugfix@{2.days.ago}		 
+git diff main@{0} main@{yesterday}
+git reflog master@(one.hour.ago}
+
+git config --global alias.showmebranches branch
+
+https://www.durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+https://gist.github.com/mwhite/6887990
+https://github.com/GitAlias/gitalias
