@@ -1,0 +1,16 @@
+root password : Pilani12
+cd "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld"
+to check id mysql is running : mysql -uroot -p
+
+to start mysql : net start mysql80
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld" 
+to shutdown mysql : mysqladmin -p -u root shutdown
+
+Alternative Option : GO to services and start "MySQL80" service manually
+
+connect with workbench
+
+Neo4j : password
+eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJjYWxsYmFjayI6IiIsImVtYWlsIjoibmFyZXNoa3VtYXIucGlsYW5pQGdtYWlsLmNvbSIsImZvcm1hdCI6Impzb24iLCJvcmciOiJOYXJlc2gga2kgRHVrYW4iLCJwdWIiOiJuZW80ai5jb20iLCJyZWciOiJOYXJlc2ggS3VtYXIiLCJzdWIiOiJuZW80ai1kZXNrdG9wIiwiZXhwIjoxNjA3Njg5OTU2LCJ2ZXIiOiIqIiwiaXNzIjoibmVvNGouY29tIiwibmJmIjoxNTc2MDY3NTU2LCJpYXQiOjE1NzYwNjc1NTYsImp0aSI6Im1KQ2tTbkFORiJ9.sTVdCqX3DQXaJK8xPQ_jDVSP8ZGEWPgcuNDVz-oBMXqpWSnO-H7KCsL4udOPSO36FD0Nf4i1lnTsFJ_FvVf4A3pbWfTrUu_iADa7fr9ohNvf8WRmcf6qpyI-00cJx91sdwmU8zyhVB0F-Z4PAOo7BiGRbqFGP2VofBxBvsHbuzYbLslB6akNWslvXWTRVWbYPH6pxXuK6kdGEhtJQhhPEw7aCkLy-FiO0nHz0C0ajKBnO8fsJ2F3cjT1VphClLdP5-k3I1EgXoKI_1vCuzlB5MoRJEeAQq4xnhy2CYA6yDnN84-FOTC0GgNU-wvqUpBsGLWQKKMGj7-YO1NUcKj_LQ
+
+
