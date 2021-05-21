@@ -1,0 +1,7 @@
+set-executionpolicy remotesigned
+
+www.getbootstrap.com
+
+ npm install bootstrap
+ 
+ npm install @fortawesome/fontawesome
