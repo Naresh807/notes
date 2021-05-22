@@ -1,0 +1,31 @@
+ to compile
+   tsc <filename>.ts
+   node <filename>.js
+   tsc --noEmitOnError <filename>.ts 
+   
+ Basic Types
+ ********************************************************
+ Type             Description
+ ********************************************************
+ boolean     
+ number
+ string
+ any           Support "any" datatype assignment
+ others...  
+ ********************************************************
+
+ let <variableName> : <datatype> = <intial value>;
+
+console.log(`Hi ${firstName} ${lastName}` )  [template String]
+
+Array : we need to use [ "square bracket"
+        Array in typescript is always growable and dynamic
+        <ArrayName>.push(<element>)
+
+**********************************************************
+Access Modifiers        
+**********************************************************
+public          default
+protected       current class and sub-class
+private         current class
+**********************************************************
