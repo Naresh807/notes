@@ -122,6 +122,3 @@ That's it! You have successfully installed the development tools: Visual Studio 
     1. Add the npm installation folder to your "user variables" AND "environment variables"
 
     *This troubleshooting tip was contributed by **Chris**. Thanks Chris!!*
-
----
-&copy; 2021, [luv2code LLC](http://www.luv2code.com) - All rights reserved.

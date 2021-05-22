@@ -20,8 +20,12 @@ angluar release new version in every six month
 
 **********************************************************************************************************************************
    Tool           Purpose
-**********************************************************************************************************************************     node           For running java script code from command line
+**********************************************************************************************************************************     
+   node           Node is the the runtime environment for executing JavaScript code from the command-line. By using Node, you can 
+                  create any type of application using JavaScript including server-side / backend applications.
    npm            Node package manager : download new node packages and feature. similiar to Maven
    tsc            TypeScript compilier 
 **********************************************************************************************************************************
+
+Typescript : it provide static typing support for java script, add support for object oriented
 
