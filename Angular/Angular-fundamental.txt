@@ -31,3 +31,10 @@ angluar release new version in every six month
 
 Typescript : it provide static typing support for java script, add support for object oriented
 
+Angular 
+   1. Component based framework
+   2. Clean separtion of template coding and applcaition coding
+   3. Build-in support for data binding and dependency injection
+   4. Supports resposive web design and modern framework like bootstarp etc...
+    
+
