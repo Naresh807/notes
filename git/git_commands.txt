@@ -64,6 +64,7 @@ git reset <comit-hash>   [will reset repository to specific commit
 							It will remove changes for repository. In working directory changes will remain]
 git reset --hard <comit-hash>  [will reset repositoryand working directory to specfic commit]
 git reset --hard master@{qualifier}
+git reset --soft Head~2
 
 git revert <comit-hash>   [Reset actually moved pointer to specific comit-hash
 						whereas revert create new commit which reverse/undo changes for a comit]

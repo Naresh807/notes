@@ -6,6 +6,8 @@ In this guide, we will install the following development tools
 * node
 * npm
 * tsc
+* angular CLI
+* trouble shooting [Power shell]
 
 ## Install Visual Studio Code
 Visual Studio Code is a general purpose IDE that support many programming languages. Visual Studio Code has built-in support for TypeScript.
@@ -34,26 +36,14 @@ In this course, we'll use Node to run applications that we develop using TypeScr
 5. Open a **Command Prompt** window to verify the node installation
 
 6. In the **Command Prompt** window, type the following command: 
-
     ```bash
     node --version
     ```
-
-   If the installation is successful, you will see the version number
-
-   > Note: The Node installation also includes npm (Node Package Manager).
-
-3. Verify npm is installed
+7. Verify npm is installed
 
     ```bash
     npm --version
     ```
-
-   If the installation is successful, you will see the version number. 
-
-   > Note: node will have a different number than npm. This is similar to a different Java JDK version number compared to Maven version number.
-   >
-   > In this example, node is similar to the Java JDK.  And npm is similar to Maven.
 
 ## Install tsc
 tsc is the TypeScript compiler. We use tsc to compile TypeScript code into JavaScript code. We can install the TypeScript compile using the Node Package Manager (npm)
@@ -66,25 +56,24 @@ tsc is the TypeScript compiler. We use tsc to compile TypeScript code into JavaS
 
    The "-g" installs this as a global package. The TypeScript compiler will be available to all directories for this user.
 
-   You will see something similar to
-
-    ```
-    C:\Users\luv2code\AppData\Roaming\npm\tsserver -> C:\Users\luv2code\AppData\Roaming\npm\node_modules\typescript\bin\tsserver
-    C:\Users\luv2code\AppData\Roaming\npm\tsc -> C:\Users\luv2code\AppData\Roaming\npm\node_modules\typescript\bin\tsc
-    + typescript@3.6.3
-    added 1 package from 1 contributor in 3.188s
-    ```
-
 2. You can verify the installation
 
     ```bash
     tsc --version
     ```
 
-   If the installation is successful, you will see the version number.
+## Install Angulatr CLI 
 
-That's it! You have successfully installed the development tools: Visual Studio Code, node, npm and tsc.
+1.    ```
+    npm install -g @angular/cli
+    ```
+   The "-g" installs this as a global package. The TypeScript compiler will be available to all directories for this user.
 
+2. You can verify the installation
+
+    ```bash
+    ng version
+    ```
 ## Troubleshooting
 
 ### Permissions Issue with tsc
@@ -122,3 +111,4 @@ That's it! You have successfully installed the development tools: Visual Studio 
     1. Add the npm installation folder to your "user variables" AND "environment variables"
 
     *This troubleshooting tip was contributed by **Chris**. Thanks Chris!!*
+  

@@ -1,8 +1,11 @@
  to compile
    tsc <filename>.ts
-   node <filename>.js
    tsc --noEmitOnError <filename>.ts 
-   
+
+node <filename>.js  
+
+tsc --init  [to create tsconfig.json file]
+
  Basic Types
  ********************************************************
  Type             Description
