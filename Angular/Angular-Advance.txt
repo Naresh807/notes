@@ -9,3 +9,19 @@ To run : ng serve   [ By default serve will here on port 4200]
 https://angular.io/guide/file-structure  [ Angluar project structure]
 
 ng generate Component <Component-Name> [ to generate angular component]
+ng generate class <folder/className> 
+_________________________________________________________________________________________________________________________________
+*ngFor="let tempSalesPerson of salesPersonsList"
+<div *ngif="boolean condition">
+    Show this content if the boolean expression is true
+</div>
+Eg:
+ <div *ngIf="tempSalesPerson.salesVolume >= 60000; else myElseBlock">Yes</div>
+         <ng-template #myElseBlock>No</ng-template>   
+
+https://angula.io/api/common/ngif
+__________________________________________________________________________________________________________________________________
+
+Angular Pipes
+<p>Cost: {{somvalue  | currency:'USD'}}
+

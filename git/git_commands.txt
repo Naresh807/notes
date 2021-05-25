@@ -95,6 +95,7 @@ Add SSH key to SSH agent ::
 
 Copy SSH public key to clipboard :: clip < ~/.ssh/id_rsa.pub
 ssh -T git@bitbucket.org
+ssh -T git@bitbucket-Naresh2
 ssh -T git@github.com
 ssh -T git@github-dhananjay
 
