@@ -1,0 +1,10 @@
+Key Component
+----------------------------------------------------------------------------------------------------
+   Name             |    Description
+-------------------------------------------------------------------------------------------------  
+   Router                Main routing service. Enable navigation between views based on use actions.
+   Route                 Maps a URL path to a component
+   RouterOutlet          Acts as a pleceholder. Renders the desired component based on route.
+   RouterLink            Link to specific routes in your application.
+   ActivatedRoute        The current active route that loaded the component. Useful for accessing route parameters.
+   

@@ -10,6 +10,9 @@ https://angular.io/guide/file-structure  [ Angluar project structure]
 
 ng generate Component <Component-Name> [ to generate angular component]
 ng generate class <folder/className> 
+ng generate service <folder>/<serviceName>
+npm install bootstrap
+npm install @fortawesome/fontawesome-free  [we need to run for each project]
 _________________________________________________________________________________________________________________________________
 *ngFor="let tempSalesPerson of salesPersonsList"
 <div *ngif="boolean condition">
@@ -24,4 +27,8 @@ ________________________________________________________________________________
 
 Angular Pipes
 <p>Cost: {{somvalue  | currency:'USD'}}
+_________________________________________________________________________________________________________________________________
+Need to add "HttpClientModule" in import section for module.ts for service 
+import { HttpClientModule } from '@angular/common/http'
+Need to add Service class in provider list
 

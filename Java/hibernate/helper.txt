@@ -1,0 +1,32 @@
+@Column(name="date_Created")
+@CreationTimestamp
+private Date dateCreated;
+
+@Column(name="last_Updated")
+@UpdateTimestamp
+private Date lastUpdated;
+
+@CreationTimestamp & @UpdateTimestamp : HIbernate will automatically fill these attribute
+________________________________________________________________________________________________________________________________
+
+public interface ProductRepository extends JpaRepository<Product [Type of Entity], Long [Type of ID]>
+
+@RepositoryRestResource(collectionResourceRel = "productCategory" [Name of JSON entry], path = "product-category" [URI path])
+public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Long>
+
+public class DataRestConfig implements RepositoryRestConfigurer {
+
+	@Override
+	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
+		
+		HttpMethod [] theUnsupportedActions = {HttpMethod.DELETE, HttpMethod.POST, HttpMethod.PUT};
+		
+		config.getExposureConfiguration()
+			.forDomainType(Product.class)
+			.withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+			 .withCollectionExposure((metdata,httpMethods) ->  httpMethods.disable(theUnsupportedActions))
+			 ;		
+		
+	}
+	
+}

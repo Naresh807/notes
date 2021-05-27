@@ -1,0 +1,2 @@
+
+https://start.spring.io/    [to create project structure]

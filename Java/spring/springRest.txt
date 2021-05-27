@@ -1,0 +1,6 @@
+
+For cross origin support
+
+@CrossOrigin("Http://localhost:4200")
+@CrossOrigin("Http://localhost:4200","http;//www.acb.com")
+@CrossOrigin  [for all url]
