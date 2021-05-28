@@ -20,7 +20,12 @@ ________________________________________________________________________________
 </div>
 Eg:
  <div *ngIf="tempSalesPerson.salesVolume >= 60000; else myElseBlock">Yes</div>
-         <ng-template #myElseBlock>No</ng-template>   
+         <ng-template #myElseBlock>No</ng-template>  
+
+  <!-- if products empty then display a message-->
+    <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+        No Products found
+    </div>           
 
 https://angula.io/api/common/ngif
 __________________________________________________________________________________________________________________________________

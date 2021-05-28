@@ -1,0 +1,26 @@
+
+Events 
+----------------------------------------------------------------------------------------------------
+  Name                           Description
+----------------------------------------------------------------------------------------------------
+click
+dblclick
+focus
+blur
+keyup
+keydown
+https://developer.mozilla.org/en-US/docs/Web/Events
+
+
+
+<input #myInput type="text"
+      (keyup.enter)="doMyCustomWork(myInput.value)"/>
+ <button (click)="doMyCustomWork(myInput.value)">Search</button>
+
+In Component, Inject Router
+constructor(private router:Router) { }
+
+route to specific route
+searchByKeyword(keyword : string){
+      this.router.navigateByUrl(`search/${keyword}`);
+  }
