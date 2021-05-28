@@ -7,4 +7,56 @@ Key Component
    RouterOutlet          Acts as a pleceholder. Renders the desired component based on route.
    RouterLink            Link to specific routes in your application.
    ActivatedRoute        The current active route that loaded the component. Useful for accessing route parameters.
-   
+-------------------------------------------------------------------------------------------------------------------------------
+import { Routes, RouterModule } from '@angular/router';
+
+  1. [Route & Router]
+     In app.module.ts
+       const routes: Routes = [  {path: 'category/:id', component: ProductListComponent},
+                                 {path: 'category', component: ProductListComponent},
+                                 {path: 'products', component: ProductListComponent},
+                                 {path: '', redirectTo: '/products', pathMatch: 'full'},
+                                 {path: '**', redirectTo: '/products', pathMatch: 'full'}
+                                 ];
+      imports: [
+         RouterModule.forRoot(routes)  ]
+   2. [RouterOutlet]
+      In app.component.html
+      Add  <router-outlet></router-outlet>      
+   3. [RouterLink]
+         <li>
+            <a routerLink="/category/1" routerLinkActive="active-link">Books</a>
+         </li>   
+   4. In ProductListComponent
+       inject ActivatedRoute      
+        constructor(private productService : ProductService,
+              private route:ActivatedRoute) { }
+        subscribe
+         ngOnInit(): void {
+               this.route.paramMap.subscribe(() => {
+                  this.listProducts();
+               }); 
+            }      
+          listProducts() {
+            //check if "id" parameter is available
+            const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
+
+            if(hasCategoryId){
+               this.currentCategoryId = +this.route.snapshot.paramMap.get('id')! ;
+            } else{
+               this.currentCategoryId = 1;
+            }
+
+            this.productService.getProductList(this.currentCategoryId).subscribe(
+               data => {
+               this.products = data;
+               }
+            )
+         }
+   5. In ProductService
+      getProductList(theCategoryId: number): Observable<Product[]>{
+     const url = this.baseUrl + "/search/findByProductCategoryId?id=" + theCategoryId; 
+     return this.httpClient.get<GetReponse>(url).pipe(
+       map(response => response._embedded.products)
+     );
+   }
