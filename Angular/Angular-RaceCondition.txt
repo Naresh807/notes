@@ -1,0 +1,19 @@
+
+Race Condition : The HTML template file is attempting to access property but property is not yet assigned
+
+Possible solution:
+ 1. Assign a value to the variable/Create new instance
+ 2. Safe-navigation opertor "?" : need to put "?" for all attribute
+
+ Angular Language Service
+  1. Provides additional support for
+     # Compilation errors, code completion, etc
+     https://angular.io/guide/language-service
+  It is avilable as extension for code editor
+
+  Install the extension in Visual Studio code
+   1. Menu option: View> Extension
+   2. Search for: Angular Language Service
+   3. Click Install
+
+
