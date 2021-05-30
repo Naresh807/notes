@@ -1,0 +1,96 @@
+PrimeNG : Angular doesn't have any out of the box rich UI components like datatables, grids etc. 
+        PrimeNG is a collection of rich UI components for Angular. All widgets are open source and free to use under MIT License. 
+        PrimeNG provides good documentation that can be used for making use of the widgets provided by them.
+-------------------------------------------------------------------------------------------------------------------------------
+Installation of PrimeNG  [Along with primeng we need to install othe framework]
+1. npm install primeng --save
+2. npm install primeicons --save        [Prime icons]
+3. npm install font-awesome --save      [Font Awesome]
+4. npm install @angular/cdk  --save     [Angular CDK]
+5. Open angular.json
+   add styles
+   ["./node_modules/primeicons/primeicons.css",
+  "./node_modules/primeng/resources/themes/nova-accent/theme.css",
+  "./node_modules/primeng/resources/primeng.min.css",]
+6. In app.module.js 
+            import { TableModule } from 'primeng/table';
+            import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+            import {PaginatorModule} from 'primeng/paginator';
+            add { TableModule,
+                BrowserAnimationsModule,
+                PaginatorModule }
+-------------------------------------------------------------------------------------------------------------------------------------
+##In Html 
+ Option # 1 : Define pagination in "p-table"
+            <p:dataTable var="item" id="initemList" widgetVar="initemList" value="#{initemController.initems}"
+                            paginator="true" rows="50" reflow="true"
+                            paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}
+                                                {CurrentPageReport}"
+                            currentPageReportTemplate="{startRecord} - {endRecord} of {totalRecords}" paginatorPosition="bottom"
+                            rowsPerPageTemplate="10,25,50" selectionMode="single" scrollable="true"
+                            selection="#{initemController.selectedInitem}" rowKey="#{item.itemid}">
+
+            <p-table [value]="books" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]"    
+            [totalRecords]="totalRecords" [pageLinks]="3">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>Price In Dollars</th>          
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-book>
+                    <tr>
+                        <td>{{book.name}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.price}}</td>          
+                    </tr>
+                </ng-template>
+            </p-table>
+Option # 2 :  Define pagination separately
+              
+                <!-- ng prime data table with pagination -->
+                <p-table [value]="products">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                
+                                <th>Price In Dollars</th>          
+                                <th>Stock</th> 
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-product>
+                            <tr>
+                                <td>{{product.id}}</td> 
+                                <td>{{product.name}}</td>
+                                
+                                <td>{{product.unitPrice | currency:'USD'}}</td>
+                                <td>{{product.unitsInStock}}</td>          
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="summary">
+                            <p-paginator #p [rows]="thePageSize" [totalRecords]="theTotalElements" [pageLinkSize]="3"
+                                         [rowsPerPageOptions]="[5,10,15,20]" 
+                                         (onPageChange) = "paginate($event)"
+                            >Total Hits:{{theTotalElements}}</p-paginator>
+                            <p-footer>Total Hits:{{theTotalElements}}
+                                
+                            </p-footer>
+                            <button (click)="reset($event)">Reset</button>
+                        </ng-template> 
+                </p-table>           
+    In Component
+                @ViewChild('p', {static: false}) paginator!: Paginator ;
+                reset($event: any) {
+                            this.paginator.changePageToFirst($event);
+                }
+                paginate(event: any) {
+                    //event.first = Index of the first record
+                    //event.rows = Number of rows to display in new page
+                    //event.page = Index of the new page
+                    //event.pageCount = Total number of pages
+                    this.thePageSize = event.rows;
+                    this.thePageNumber = event.page;
+                    this.handleKeywordSearch() ;
+                }

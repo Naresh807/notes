@@ -23,6 +23,9 @@ Install ng-bootstrap
      NgbModule
  ]
 _________________________________________________________________________________________________________________________________
+Download existing project from GitHub/BitBucket
+-> npm install
+_________________________________________________________________________________________________________________________________
 *ngFor="let tempSalesPerson of salesPersonsList"
 <div *ngif="boolean condition">
     Show this content if the boolean expression is true
