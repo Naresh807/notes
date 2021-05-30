@@ -13,6 +13,15 @@ ng generate class <folder/className>
 ng generate service <folder>/<serviceName>
 npm install bootstrap
 npm install @fortawesome/fontawesome-free  [we need to run for each project]
+
+Install ng-bootstrap
+ ng add @angular/localize    [Dependency for Angular 9+]
+ npm install @ng-bootstrap/ng-bootstrap  or [npm install @ng-bootstrap/ng-bootstrap --legacy-peer-deps]
+ Import the module for ng-bootstrap
+ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'  
+ imports: [
+     NgbModule
+ ]
 _________________________________________________________________________________________________________________________________
 *ngFor="let tempSalesPerson of salesPersonsList"
 <div *ngif="boolean condition">

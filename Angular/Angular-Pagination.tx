@@ -1,0 +1,25 @@
+
+Pagination with Angular
+1. There are many pagination solutions available for Angular
+2. One of the popular component framework: ng-bootstrap
+
+https://ng-bootstrap.github.io
+
+Pagination component
+------------------------------------------------------------------
+ Parameter                  Purpose
+----------------------------------------------------------------------------
+  page                      The page number to access 1-based.. defaults to 1
+  pageSize                  The size of the page (items per page). Defaults to 10
+  collectionSize            The total numbers of items
+  pageChange                Event handler for page change events.
+
+
+  Basic example of pagination component
+  <ngb-pagination [(page)]          = "thePageNumber"
+                  [pageSize]        = "thePageSize"
+                  [collectionSize]  = "theTotalElements"
+                  [pageChange]      = "listProducts()">
+ </ngb-pagination>
+                  
+
