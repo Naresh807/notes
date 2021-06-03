@@ -1,0 +1,60 @@
+Source   [https://www.baeldung.com/database-auditing-jpa]
+
+Step 1: Enabling JPA Auditing
+        To start, we want to enable auditing via annotation configuration. In order to do that, 
+        just add @EnableJpaAuditing on your @Configuration class:
+
+     Eg: @Configuration
+        @EnableJpaAuditing()
+        public class JpaAuditingConfiguration { }     
+
+Step 2: Adding Spring's Entity Callback Listener
+        JPA provides the @EntityListeners annotation to specify callback listener classes. 
+        Spring Data provides its own JPA entity listener class: AuditingEntityListener. 
+     Eg: @EntityListeners(AuditingEntityListener.class)
+         public class Auditable<U> {
+            @CreatedBy
+            @Column(name = "created_by")
+            private U createdBy;
+
+            @CreatedDate
+            @Column(name = "created_date")
+            private Date createdDate;
+
+            @LastModifiedBy
+            @Column(name = "last_updated_by")
+            private U lastModifiedBy;
+
+            @LastModifiedDate
+            @Column(name = "last_updated_date")
+            private Date lastModifiedDate;
+        }   
+    *** The properties are annotated by the @CreatedDate and @LastModifiedDate annotations accordingly, and their values are set automatically
+    *** The columns annotated with @CreatedBy and @LastModifiedBy are populated with the name of the principal 
+        that created or last modified the entity. The information is pulled from SecurityContext‘s Authentication instance. 
+        If you want to customize values that are set to the annotated fields, you can implement AuditorAware<T> interface:
+        
+        public class AuditorAwareImpl implements AuditorAware<String> {
+            @Override
+            public String getCurrentAuditor() {
+                // your custom logic
+            }
+        }
+
+        In order to configure the app to use AuditorAwareImpl to look up the current principal, 
+        declare a bean of AuditorAware type initialized with an instance of AuditorAwareImpl 
+        and specify the bean's name as the auditorAwareRef parameter's value in @EnableJpaAuditing:
+
+        @Configuration
+        @EnableJpaAuditing(auditorAwareRef = "auditorProvider")
+        public class JpaAuditingConfiguration {
+
+            @Bean
+            public AuditorAware<String> auditorProvider() {
+
+                return new AuditorAwareImpl();
+            }
+        }
+
+
+

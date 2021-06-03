@@ -1,0 +1,16 @@
+
+
+We have considered three approaches to implementing auditing functionality:
+
+1. The pure JPA approach is the most basic and consists of using lifecycle callbacks.
+   However, you are only allowed to modify the non-relationship state of an entity. 
+   This makes the @PreRemove callback useless for our purposes, 
+   as any settings you've made in the method will be deleted then along with the entity.
+
+2. Envers is a mature auditing module provided by Hibernate. 
+   It is highly configurable and lacks the flaws of the pure JPA implementation. 
+   Thus, it allows us to audit the delete operation, as it logs into tables other than the entity's table.
+
+3. The Spring Data JPA approach abstracts working with JPA callbacks and provides handy annotations for auditing properties. 
+   It's also ready for integration with Spring Security. 
+   The disadvantage is that it inherits the same flaws of the JPA approach, so the delete operation cannot be audited.

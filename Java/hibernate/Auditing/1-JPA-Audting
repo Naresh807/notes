@@ -1,0 +1,42 @@
+Source   [https://www.baeldung.com/database-auditing-jpa]
+
+@PrePersist, @PreUpdate and @PreRemove
+
+In JPA Entity class, a method can be specified as a callback which will be invoked during a particular entity lifecycle event.
+ As we're interested in callbacks that are executed before the corresponding DML operations,
+ there are @PrePersist, @PreUpdate and @PreRemove callback annotations available for our purposes:
+
+        @Entity
+        public class Bar {
+            
+            @PrePersist
+            public void onPrePersist() { ... }
+            
+            @PreUpdate
+            public void onPreUpdate() { ... }
+            
+            @PreRemove
+            public void onPreRemove() { ... }
+            
+        }
+
+Internal callback methods should always return void and take no arguments. They can have any name and any access level 
+but should not be static.
+
+Be aware that the @Version annotation in JPA is not strictly related to our topic – it has to do with optimistic locking more than 
+with audit data
+________________________________________________________________________________________________________________________________
+
+If you need to add such auditing to multiple classes, you can use @EntityListeners to centralize the code. For example:
+
+@EntityListeners(AuditListener.class)
+@Entity
+public class Bar { ... }
+public class AuditListener {
+    
+    @PrePersist
+    @PreUpdate
+    @PreRemove
+    private void beforeAnyOperation(Object object) { ... }
+    
+}
