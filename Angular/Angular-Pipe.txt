@@ -1,0 +1,6 @@
+
+Pipe : It transform output in our template from
+
+{{investmentSummary.date | date : 'MMMM yyyy' }}
+
+{{investmentSummary.increasePercentage | number : '1.2-2' }}

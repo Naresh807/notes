@@ -1,0 +1,20 @@
+java.lang.class
+
+Whenever a class is loaded by JVM along with that a Class<class> object is created
+
+Primitive datatype(int/float/double etc..) are also represented as class object
+
+Whenever a object is created first time then class get loaded in JVM and Class object get created
+
+Three ways to get Class object
+
+//forName
+Class<?> clss1 = Class.forName("java.lang.String");
+
+//ClassName.class
+Class<?> clss2 = String.class;
+Class<?> clss3 = int.class;
+
+//obj.getClass
+ReflectionDemo m = new ReflectionDemo();
+Class<? extends ReflectionDemo> clss4 = m.getClass();

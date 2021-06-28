@@ -1,0 +1,18 @@
+Define metadata about a program
+
+Declaration
+       public/abstract 
+     [access specifier] @interface <AnnotationName>{
+         <DataType> <MemberName>() [default value]
+     }
+
+ Utilization  
+       @<AnnotationName>(member = value)
+
+Types of Annotation
+  1. Market Annotation            - without any member : @Override
+  2. Single-Valued Annotations    - with single member : @SuppressWarning("UnChecked") 
+  3. Multi-Valued Annotations     - with more than one member
+
+  
+    

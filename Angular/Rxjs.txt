@@ -1,0 +1,35 @@
+
+Rxjs : Functional reactive programing library
+
+                 ***********************
+                 *   Source of Events  * 
+                 *   OBSERVABLE        *
+                 ***********************    
+                           *
+                           *
+          ***************************************
+          *                                     *         
+          *       OPERATORS                     *
+          *                                     *
+          *                                     *
+          *       OPERATORS                     *
+          *                                     *   PIPE LINE
+          *                                     *
+          *       OPERATORS                     *
+          *                                     *
+          *       OPERATORS                     *
+          *                                     *
+          *                                     *
+           ***************************************                 
+                       *
+                       *
+                  OBSERVER  
+
+Online IDE : out.stegrider.now.sh
+
+import { of } from 'rxjs';
+
+of => It will convert a object into OBSERVABLE
+
+let data: number[] = [];
+of(data)

@@ -1,0 +1,15 @@
+                          Standard Annotations
+             |                                        |
+  General Purpose Annotation                    Meta Annotation
+     Java.lang                                   Java.lang.Annotation
+     @Override                                    @Documented
+     @SuppressWarning                             @Inherited etc..
+
+
+Meta Annotation : Used to define property or metadata for any custom Annotation
+    @Documented  : If we want to inculde annotation in java docs 
+    @Inherited   : By using this annotation child class/interface will also inherite this annotation
+    @Target      : Used to define target entity to whcih this annotation can be used
+    @Retention
+
+

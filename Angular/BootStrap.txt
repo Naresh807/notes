@@ -21,4 +21,12 @@ update angular.json
                <img src="{{tempProduct.imageUrl}}" height="50"/>
            </td>
 
+Install ng-bootstrap
+ ng add @angular/localize    [Dependency for Angular 9+]
+ npm install @ng-bootstrap/ng-bootstrap  or [npm install @ng-bootstrap/ng-bootstrap --legacy-peer-deps]
+ Import the module for ng-bootstrap
+ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'  
+ imports: [
+     NgbModule
+ ]
  

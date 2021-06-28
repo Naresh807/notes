@@ -1,0 +1,25 @@
+import java.util.function.Function;
+
+@Override
+	public Page<InvestmentListDto> getAllInvetsments(String userId) {
+		Pageable pageable = null;
+		Page<Investment> investments = investmentRepository.findByUser(userId, pageable);
+		Page<InvestmentListDto> investmentListDto = investments.map(new Function<Investment, InvestmentListDto>() {
+
+			@Override
+			public InvestmentListDto apply(Investment source) {
+				InvestmentListDto investmentDto = new InvestmentListDto();
+				investmentDto.setDate(source.getInvestmentDate());
+				investmentDto.setGoal(source.getGoal().getGoalName());
+				investmentDto.setAccountType(source.getInvestmentAccount().getAccountName());
+				investmentDto.setMonthlyContribution(source.getInvestmentAmount());
+				investmentDto.setCurrentAmount(source.getCurrentAmount());
+				
+				return investmentDto;
+			}
+
+			
+			
+		});
+		return investmentListDto;
+	}
