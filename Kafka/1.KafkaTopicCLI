@@ -1,0 +1,37 @@
+Topics
+  Kafka-topics --zookeeper 127.0.0.1 --topic <topicName> --create --partitions <Number> --replication-factor <number>
+      Kafka-topics --zookeeper 127.0.0.1 --topic twitter_tweets --create --partitions 3 --replication-factor 2
+  kafka-topics --zookeeper 127.0.0.1:2181 --list    
+  kafka-topics --zookeeper 127.0.0.1:2181 --topic <TopicName> --describe
+      kafka-topics --zookeeper 127.0.0.1:2181 --topic twitter_tweets --describe
+  kafka-topics --zookeeper 127.0.0.1:2181 --topic <TopicName> --delete    
+
+**************************************************************************************************************************************
+kafka-console-produce 
+
+kafka-console-producer --broker-list 127.0.0.1:9092 --topic firstTopic
+
+ kafka-console-producer --broker-list 127.0.0.1:9092 --topic firstTopic --producer-property acks=all
+
+ kafka-console-producer --broker-list 127.0.0.1:9092 --topic firstTopic [Kafka will create new topic if not exists (not recommended)]
+
+ kafka-console-producer --broker-list 127.0.0.1:9092 --topic firstTopic --property parse.key=true --property key.separator=,
+*********************************************************************************************************************************************
+[This will read all message after consumer started]
+  Kafka-console-consumer --bootstrap-server 127.0.0.1:9092  --topic twitter_tweets  
+
+[This will read all messages] 
+  Kafka-console-consumer --bootstrap-server 127.0.0.1:9092  --topic firstTopic  --from-beginning
+
+Consumer has to be part of group. 
+  Kafka-console-consumer --bootstrap-server 127.0.0.1:9092  --topic twitter_tweets --group kafka-demo-elasticsearch 
+
+  
+  Kafka-consumer-groups --bootstrap-server 127.0.0.1:9092 --list
+
+  Kafka-consumer-groups --bootstrap-server 127.0.0.1:9092 --describe --group readTwitterTweets
+
+Reset offset
+  Kafka-consumer-groups --bootstrap-server 127.0.0.1:9092   --group my-first-application --reset-offsets --to-earliest --execute --topic firstTopic
+
+  kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic --from-beginning --property print.key=true --property key.separator=,

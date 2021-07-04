@@ -1,0 +1,7 @@
+Kafka Broker Discovery
+ . Every Kafka broker is also called a "bootstrap server"
+ . That means that you only need to connect to one broker, and you will be connected to entire cluster.
+ . Each broker knos about all brokers, topics and partitions (metadata)
+ 
+  
+

@@ -1,0 +1,23 @@
+Partitions Count
+  . Each partition can handle a throughput of a few MB/s (measure it for youe setup)
+  . More partitions implies:
+     . Better parallelism, better throughput
+     . Ability to run more consumers in a group to scale
+     . Ability to leverage more brokers if you have a large cluster
+     . BUT more elections to perform for ZooKeeper
+     . BUT more files opened on kafka
+Guildlines:
+  . Partitoins per topic
+    .(Intuition) Small cluster (< 6 brokers) 2x # brokers
+    .(Intuition) Big cluster (> 12 brokers): 1 x #of brokers
+    . Adjust for number of consumers you need to run in parallel at peak throughput
+    . Adjust for producer throughput
+
+Replication factor
+  . Should be atleast 2,usually 3, maximum 4
+
+Cluster guildline
+  . It is pretty much accepted that a broker should not hold more than 2000 to 4000 partitions (across all topics of that brokers)
+  . Additonally, a Kafka cluster should have a maximum of 20,000 partitions across all brokers.
+  . The reason is that in case of brokers going down, Zookeepers needs to perform a lot of leader elections.
+  
