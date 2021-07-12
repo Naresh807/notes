@@ -1,0 +1,42 @@
+  
+  *********
+  * kafka *      poll            Kafka
+  *       *      messages        Consumer
+  *********
+
+Spring Kafka Consumer
+ . MessageListenerContainer [ Interface with two implementation]
+     . KafkaMessageListenerContainer
+     . ConcurrentMessageListenerContainer
+        . It uses @KafkaListener Annotation
+           . uses ConcurrentMessageListenerContainer behind the scenes
+
+KafkaMessageListenerContainer
+  . implementation of MessageListenerContainer
+  . Polls the records
+  . Commits the Offsets
+  . Single Threaded
+
+ConcurrentMessageListenerContainer
+  . multiple instantes of KafkaMessageListenerContainer
+
+@KafkaListener  
+ . KafkaListener Sample code
+   @KafkaListener(topics = {"${spring.kafka.topic}"})
+   public void onMessage(ConsumerRecord<Integer, String> consumerRecord){
+     log.info("OnMessage Record ; {},consumerRecord);
+   }
+
+  .configuration sample code
+    @Configuration
+    @EnableKafka
+    @Slf4j
+    public class className
+
+@EnableKafka  // If we want to automatically access properties mention in application.properties file for kafka   
+
+https://www.maestralsolutions.com/spring-boot-implementation-for-apache-kafka-with-kafka-tool/
+
+/*********************************************************************************/
+KafkaAutoConfiguration class : This class will invoke when application starts and will auto configure based on the properties we have provided.
+KafkaAnnotationDrivenConfiguration class : this class is responsible for configuring kafka consumer

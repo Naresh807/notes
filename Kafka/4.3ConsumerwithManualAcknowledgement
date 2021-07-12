@@ -1,0 +1,16 @@
+@Component
+@Slf4j
+public class TweetsConsumerManualOffSet implements AcknowledgingMessageListener<String, String>{
+	
+	
+
+	@Override
+	@KafkaListener(topics = {"twitter_tweets"})
+	public void onMessage(ConsumerRecord<String, String> data, Acknowledgment acknowledgment) {
+		log.info("Consumer Record : {} ", data);
+		acknowledgment.acknowledge();
+	}
+	
+	
+
+}

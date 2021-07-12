@@ -12,11 +12,12 @@ Default properties on local
     delivery.timeout.ms = 120000 [(2 mins)timeout till kafka will retry]
     max.in.flight.requests.per.connection = 5 [how many producer request can be made parallel to a sindle broker]
 
-    enable.idempotence = true [will set idempotence producer]
+    enable.idempotence = true [will set idempotence producer, Kafka enable producer request id which can be identified by kafka 
+	                           and eliminate duplicate]
                  Kafka >= 0.11
                     enable.idempotence=true (producer level) + min.insync.replicas=2(broker/topic level)
                         . Implies acks=all, retries=MAX_INT, max.in.flight.requests.per.connection=1 if kafka = 0.11 or 5 if kafka >= 1.0
-                        . while keeping oder gurantee with imporved performance
+                        . while keeping order gurantee with imporved performance
     
     compression.type = none ['none' (default), 'gzip', 'lz4', 'snappy' (lz4 & snappy is preferred one)]
     linger.ms = 0 [No. of millisecond a producer is willing to wait before sending a batch out]

@@ -1,0 +1,30 @@
+
+Kafka support two popular protocols
+ . SSL(Secured Sockets Layer), which is TLS (Transport Layer Security) now
+ . SASL (SImple Authentication and Security layer)
+
+How SSL works ?
+ . SSL used for two things
+   . Encrytion
+   . Authentication
+
+SSL Set Up Steps
+ 1. Generate server.keystore.jks                                 [Keystore file has the detail of web-site, Address and other revelant data]
+ 2. SetUp Local Certificate Authority
+ 3. Create CSR(Certificate Signing Request)
+ 4. Sign the SSL Certificate
+ 5. Add the Signed SSL Certificate to server.keystore file
+ 6. Configure the SSL cert in our Kafka broker
+ 7. Create client.truststore.jks for the client
+
+
+ Setup to configure SSL [1 way and 2 way]
+   https://github.com/dilipsundarraj1/kafka-for-developers-using-spring-boot/blob/master/Kafka_Security.md
+   https://stackoverflow.com/questions/11896304/openssl-is-not-recognized-as-an-internal-or-external-command
+
+ To list cetificate in server.keystore.jks
+    keytool -list -v -keystore server.keystore.jks
+
+   Generating CA in windows
+   "C:\Users\USER\certificate\openssl\bin\openssl.exe" req -new -x509 -keyout ca-key -out ca-cert -days 365 -subj "/CN=local-security-CA"
+

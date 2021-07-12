@@ -1,7 +1,10 @@
 
+https://medium.com/@stephane.maarek/the-kafka-api-battle-producer-vs-consumer-vs-kafka-connect-vs-kafka-streams-vs-ksql-ef584274c1e
+
 ### Installation : https://codingnconcepts.com/post/apache-kafka-installation/#kafka-installation-on-windows
  ZooKeeper Start : zookeeper-server-start.bat E:\kafka\config\zookeeper.properties
  Kafka Start : kafka-server-start.bat E:\kafka\config\server.properties
+ to run exectable jar :java -jar -Dserver.port=8081 E:/eclipse-workspace/spring-suite/workspace/Naresh1/tweetsConsumer/target/tweetsConsumer-0.0.1-SNAPSHOT.jar
 
 Topics: a particular stream of data
  . Similiar to a table in the database (without constraints)
