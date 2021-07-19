@@ -1,0 +1,21 @@
+SonarQube integration with Jenkins
+https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-jenkins/
+
+Installation
+    Install the SonarScanner for Jenkins via the Jenkins Update Center.
+    Configure your SonarQube server(s):
+
+    Log into Jenkins as an administrator and go to Manage Jenkins > Configure System.
+    Scroll down to the SonarQube configuration section, click Add SonarQube, and add the values you're prompted for.
+    The server authentication token should be created as a 'Secret Text' credential.
+
+Build Environment  : Set Prepare SonarQube Scanner environment
+
+Build : Select "Execute SonarScanner"
+
+sonar.projectKey=com.training.ecommerce1
+sonar.projectName=Build from Jenkins
+sonar.projectVersion=1.0
+sonar.sources=src/main/java/
+sonar.language=java
+sonar.java.binaries=target/classes 

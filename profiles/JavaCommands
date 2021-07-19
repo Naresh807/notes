@@ -7,3 +7,21 @@ Kafka Start : kafka-server-start.bat E:\kafka\config\server.properties
 
 
  to run exectable jar :java -jar -Dserver.port=8081 E:/eclipse-workspace/spring-suite/workspace/Naresh1/tweetsConsumer/target/tweetsConsumer-0.0.1-SNAPSHOT.jar
+
+mvn clean test sonar:sonar
+mvn clean verify sonar:sonar -Dsonar.login=6b2d77c422a543fd7b0fa999036044a8e2b175c6
+
+Support of code coverage of Maven project
+https://www.baeldung.com/sonarqube-jacoco-code-coverage
+SonarQube integration with Jenkins
+https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-jenkins/
+
+************************************************************************************************************
+Steps to install certificate to local JRE 
+  Download InstallCert.java [from https://github.com/escline/InstallCert]
+  Move to folder and complie installCert.java
+     java InstallCert smtp.gmail.com:465
+     
+https://mkyong.com/webservices/jax-ws/suncertpathbuilderexception-unable-to-find-valid-certification-path-to-requested-target/
+
+************************************************************************************************************
