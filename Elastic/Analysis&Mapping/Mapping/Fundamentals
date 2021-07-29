@@ -1,0 +1,11 @@
+
+. Defines the structure of documents (e.g. fields and their data types)
+    Also used to configure how values are indexed
+. Similiar to a table's schema in the relational Database
+. Explicit Mapping
+    We define field mapping ourselves
+. Dynamic mapping
+    Elasticsearch generates field mapping for us
+
+
+

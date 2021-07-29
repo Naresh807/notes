@@ -1,0 +1,33 @@
+
+Data is stored as Document similiar to rows in relational Database
+
+Document conatins fields which corresponds to column in relational Database
+
+Written in Java and build on Apache Luscene
+
+***********************
+ELastic Stack
+   . ElasticSearch
+   . Kibana  : An analytics and visualization platform
+   . Logstash : A data processing pipeline
+   . X-Pack : Adds additonal features to the ElasticSearch & Kibana like Security, Monitoring, Alerting, Reporting, Machine Learning 
+   . Graph :  
+   . Elasticsearch SQL
+   . Beats : Data shipper, it collect data and send to Logstash
+  **************************************
+
+  Kibana Demo  : https://demo.elastic.co/app/dashboards#/view/welcome_dashboard?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(description:'Main%20landing%20page%20for%20Elastic%20Demo%20Gallery;%20a%20good%20reset%20point%20if%20you%20get%20lost.',filters:!(),fullScreenMode:!f,options:(darkTheme:!f,hidePanelTitles:!f,useMargins:!t),query:(language:kuery,query:''),tags:!(),timeRestore:!f,title:'Welcome%20Dashboard',viewMode:view)
+
+  Trail Elastic : https://info.elastic.co/elasticsearch-service-trial-course.html?ultron=udemy-bo&blade=cpl&hulk=web&gambit=guide-to-es
+             [14 Days start 21st July ] https://cloud.elastic.co/ Naresh.jecrcjaipur@gmail.com  Pilani@12
+             https://cloud.elastic.co/deployments/8421d301948744b78c7f7cf105936b80
+
+______________________________________________________________________________
+  Cluster level settings
+     action.auto_create_index [by Default it is true]
+______________________________________________________________________________                  
+
+
+
+
+

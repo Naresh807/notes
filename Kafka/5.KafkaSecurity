@@ -28,3 +28,5 @@ SSL Set Up Steps
    Generating CA in windows
    "C:\Users\USER\certificate\openssl\bin\openssl.exe" req -new -x509 -keyout ca-key -out ca-cert -days 365 -subj "/CN=local-security-CA"
 
+   "C:\Users\USER\certificate\openssl\bin\openssl.exe" s_client -connect smtp.gmail.com:465 -starttls smtp
+

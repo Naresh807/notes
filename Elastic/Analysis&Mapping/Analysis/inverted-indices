@@ -1,0 +1,14 @@
+
+A field's values are stored in one of several data structures
+    The data structure depends on the field's data type
+Ensures efficient data access - e.g. searches
+Handles by Apache Lucene, not ElasticSearch
+
+***********************************************************************
+Inverted indices
+    . Mapping between terms and which document conatin them 
+    . Outside the contect of analyzers, we use the terminology "terms"
+    . Inverted indices exists within the scope of a field
+    
+
+

@@ -23,5 +23,8 @@ Steps to install certificate to local JRE
      java InstallCert smtp.gmail.com:465
      
 https://mkyong.com/webservices/jax-ws/suncertpathbuilderexception-unable-to-find-valid-certification-path-to-requested-target/
+https://mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/
 
+Steps to allow gmail smtp 
+https://stackoverflow.com/questions/35347269/javax-mail-authenticationfailedexception-535-5-7-8-username-and-password-not-ac
 ************************************************************************************************************

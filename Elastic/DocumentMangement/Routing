@@ -1,0 +1,12 @@
+
+Routing is the process of resolving a shard for a Document
+        shard_num = hash(_routing) % num_of_shards
+
+        By default is the document ID
+
+Primary terms
+
+Sequence number_of_shards
+
+Optimistic concurrency control
+

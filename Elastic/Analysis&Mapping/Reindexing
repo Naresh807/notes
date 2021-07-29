@@ -1,0 +1,28 @@
+
+POST /_reindex 
+{
+    "source":{
+        "index":"source_index"
+    },
+    "dest":{
+        "index":"destination_index"
+    }
+}
+
+
+POST /_reindex 
+{
+    "source":{
+        "index":"reviews"
+    },
+    "dest":{
+        "index":"reviews_new"
+    }
+    "script":{
+        "source": """
+        if(ctx._source.product_id != null){
+            ctx._source.product_id = ctx._source.product_id.toString();
+        }
+        """
+    }
+}

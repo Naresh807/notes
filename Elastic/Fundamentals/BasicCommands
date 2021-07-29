@@ -1,0 +1,18 @@
+GET /_cluster/health
+    API -> _cluster
+    Command -> health
+
+GET /_cat/nodes?v
+
+GET /_nodes
+
+GET /_cat/indices
+
+GET /.kibana/_search
+{
+  "query":{
+    "match_all": {}
+  }
+}
+
+Create Index : put /pages

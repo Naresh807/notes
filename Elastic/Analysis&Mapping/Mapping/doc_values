@@ -1,0 +1,33 @@
+
+Introduction
+
+. Elasticsearch makes use of several data structures
+    . No single data structure serves all purpose
+. Inverted indices are excellent for searching text
+    . they don't perform well for many other data access pattern
+. "Doc values" is another data structure used by apache Lucene        
+    . Optimized for a different data access pattern(document -> terms)
+
+
+. Essecntially an "univerted" inverted index
+. Used for sorting, aggregations and scripting
+. An additional data structure, not a replacement
+. ElasticSearch automatically ueries the appropirate data structure
+
+. Set the doc_values parameter to false to save disk space
+        . Also slightly increases the indexing throughput
+. Only disable doc values if you won't use aggregations, sorting or scripting
+. Particularly useful for large indices: typically not worth it for small ones
+
+
+ PUT /sales
+ {
+     "mapping":{
+         "properties":{
+             "buyer_email":{
+                 "type":"keyword",
+                 "doc_values": false
+             }
+         }
+     }
+ }

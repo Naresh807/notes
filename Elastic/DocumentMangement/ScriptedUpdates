@@ -1,0 +1,37 @@
+
+POST /products/_update/100
+{
+  "script": {
+    "source": "ctx._source.in_stock--"
+  }
+}
+
+POST /products/_update/100
+{
+  "script": {
+    "source": "ctx._source.in_stock=10"
+  }
+}
+
+POST /products/_update/100
+{
+  "script": {
+    "source": "ctx._source.in_stock -= params.quantity",
+    "params": {
+      "quantity":4
+    }
+  }
+}
+
+UPSERT
+POST /products/_update/101
+{
+  "script": {
+    "source": "ctx._source.in_stock--"
+  }
+  "upsert":{
+      "name":"Blender",
+      "price":399,
+      "in_stock":5
+  }
+}

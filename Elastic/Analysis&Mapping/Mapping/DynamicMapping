@@ -1,0 +1,12 @@
+
+PUT /people
+{
+    "mappings":{
+        "dynamic":"strict", //false
+        "properties":{
+            "first_name":{
+                "type":"text"
+            }
+        }
+    }
+}

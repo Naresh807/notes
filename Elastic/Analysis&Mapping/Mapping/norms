@@ -1,0 +1,21 @@
+
+norms parameter
+
+. Normalization factors used for relevance scoring
+. Often we don;t just want to filter results, but also rank darkTheme
+. Norms can be disabled to save disk space
+   . useful for fields that won't be used for relevance scoring
+   . The fields can still be used for filtering and aggregations
+
+
+PUT /sales
+ {
+     "mapping":{
+         "properties":{
+             "tags":{
+                 "type":"text",
+                 "norms": false
+             }
+         }
+     }
+ }

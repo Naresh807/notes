@@ -1,0 +1,34 @@
+
+1. Sometimes referred to as text Analysis
+2. Applicable to text fields/values
+3. Text values are analyzed when indexing documents
+4. The result is stored in data structure that are efficient for searching etc.
+5. The _source object is not used when searching for documents
+         It contains the exact values specified when indexing a documents
+
+
+Document  -------------->  Analyzer  ------------------------> Storage
+             [Character filters -> Tokenizer -> Token filters]
+
+POST /_analyze
+{
+  "text": [ "My name is Naresh Kumar"],
+  "analyzer": "standard"
+}        
+
+POST /_analyze
+{
+  "text": [ "My name is Naresh Kumar"],
+  "char_filter": [], 
+  "tokenizer": "standard", 
+  "filter": ["lowercase"]
+}
+
+POST /_analyze
+{
+  "text": [ "My name is Naresh Kumar"],
+  "analyzer": "keyword"
+} 
+ 
+
+

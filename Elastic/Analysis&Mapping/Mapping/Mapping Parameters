@@ -1,0 +1,123 @@
+
+format parameter
+*************************
+. Used to customize the format for date fields
+. default format "strict_date_optional||epoch_second"
+"created_dt":{"type": "date,
+                          "format":"dd/mm/yyyy"/"epoch_second"}
+
+
+properties parameter
+*************************
+ Define nested fields for object and nested fields
+  PUT /sales
+ {
+     "mappings":{
+         "properties":{
+             "sold_by":{
+                 "properties":{
+                     "name":{"type":"text"}
+                 }
+             }
+         }
+     }
+ }
+ PUT /sales
+ {
+     "mappings":{
+         "properties":{
+             "products":{
+                "type":"nested",
+                "properties":{
+                    "name":{"type":"text"}
+                }
+             }
+         }
+     }
+ }
+
+coerce parameter
+****************************
+ Used to enable or disable coercion of values (enabled by default)
+
+ PUT /sales
+ {
+     "settings":{
+         "index.mapping.coerce":false
+     },
+     "mapping":{
+         "properties":{
+             "amount":{
+                 "type":"float",
+                 "coerce": true
+             }
+         }
+     }
+ }
+
+ index parameter
+ ****************************
+ . Disables indexing for a field 
+ . Values are still stored within _source
+ . Useful if you won;t use a field for search queries
+ . Often used for time series data
+ . Fields with indexing disbaled can still be used for aggregations
+
+PUT /sales
+ {
+     "mapping":{
+         "properties":{
+             "server_id":{
+                 "type":"integer",
+                 "index": false
+             }
+         }
+     }
+ }
+
+null_value parameter
+*********************************
+. NULL values cannot be indexed or searched 
+. Use this parameter to replace NULL values with anonther value
+. Only works for explicit NULL values
+. The replacement values must be of the same data type as the field
+PUT /sales
+ {
+     "mapping":{
+         "properties":{
+             "partner_id":{
+                 "type":"keyword",
+                 "null_value": "NULL"
+             }
+         }
+     }
+ }
+
+ copy_to parameter
+ **********************************
+ .Used to copy multiple field values into a "group field"
+ . Simply specify the name of the target field as the value
+ . E.g. first_name and last_name -> full name
+ . Values are copied, not terms/tokens
+ PUT /sales
+ {
+     "mapping":{
+         "properties":{
+             "first_name":{
+                 "type":"text",
+                 "copy_to": "full_name"
+             },
+             "last_name":{
+                 "type":"text",
+                 "copy_to": "full_name"
+             },
+             "full_name":{
+                 "type":"text"
+             },
+
+         }
+     }
+ }
+
+
+

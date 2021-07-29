@@ -1,0 +1,30 @@
+
+PUT /reviews/_mapping
+{
+    "properties":{
+        "comment":{
+            "type":"alias",
+            "path":"content"
+        }
+    }
+}
+
+PUT /multi_field_test
+{
+    "mapping":{
+        "properties":{
+            "description":{
+                "type":"text"
+            },
+            "ingredients":{
+                "type":"text",
+                "fields":{
+                    "keyword":{
+                        "type":"keyowrd"
+                        
+                    }
+                }
+            }   
+        }
+    }
+}

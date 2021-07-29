@@ -1,0 +1,63 @@
+
+*****CREATE INDEX***********
+     put /products
+    {
+    "settings":{
+        "number_of_shards" : 2,
+        "number_of_replicas": 2
+    }
+    }
+
+*****DELETE INDEX***********
+     delete /pages
+
+*****INSERT DOCUMENT*******
+    post /products/_doc
+    {
+    "name":"tea",
+    "price":45,
+    "in_stock":10
+    }
+
+    put /products/_doc/100
+    {
+    "name":"tea",
+    "price":10,
+    "in_stock":20
+    }
+ ******Retreving Doc by ID**************
+ GET /products/_doc/100
+ ******UPdating the Document************
+    POST /products/_update/100
+    {
+    "doc":{
+        "in_stock":12
+    }
+    }    
+   Adding new field
+   POST /products/_update/100
+    {
+    "doc":{
+        "tags": ["Electronic"]
+    }
+    }
+
+    POST /products/_update_by_query
+    {
+        "conflicts":"proceed",
+        "script":{
+            "source":"ctx._source.in_stock--"
+        },
+        "query":{
+            "match_all":{}
+        }
+    }
+
+    POST /products/_delete_by_query
+    {
+        "query":{
+            "match_all":{}
+        }
+
+    }
+

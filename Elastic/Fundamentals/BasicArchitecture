@@ -1,0 +1,37 @@
+https://github.com/thombergs/code-examples/tree/master/spring-boot/spring-boot-elasticsearch
+
+
+
+Cluster : It is the collection of related node
+Node : It is the instance of elastic search that store data
+   When node start up it will either join the existing cluster of create cluster with one node
+Document : Each unit of data is called document. It is json document.
+     In elastic document is store with some metadata
+     Document json is stored into "Source" attibute in Elastic
+ Document is organised in Indices, It is logical grouping
+ Index : Collection of similiar document  
+
+ Inspecting a Cluster
+
+ Sharding and scalability
+    Sharding : Divide indices into smaller pieces
+               Each shard is apache lucene
+        Purpose of Sharding
+              Mainly to be able to store more documents
+              To eaiser fit large indices onto nodes
+              Improved performance 
+                 Parallelization of queries increses the throughput of Index
+ Replication
+    Copy is referred as replica shards
+    A shard that has been replicated, is called a primary shard
+    A primary shard and replica shards is reffered to as replication grouping
+
+
+Master Node
+Data Node
+Ingest Node
+Machine learning Node 
+Coordination Node
+Voting-only Node
+
+

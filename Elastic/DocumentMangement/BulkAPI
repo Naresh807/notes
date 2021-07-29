@@ -1,0 +1,54 @@
+Bulk API
+
+The Bulk API expects data formatted using the NDJSON specification
+      action_and_metadata\n 
+       optional_source\n
+      action_and_metadata\n 
+       optional_source\n
+
+ POST /_bulk
+ { "index": {"_index":"products","_id":200}}
+ { "name": "Espresso Machine", "price":199, "in_stock":5}
+  { "create": {"_index":"products","_id":201}}
+ { "name": "Milk Machine", "price":150, "in_stock":5}
+
+ POST /_bulk
+ { "update": { "_index": "products", "_id":201} }
+ { "doc": { "price":129}}
+ {"delete":{"_index":"products","_id":200}}
+
+
+  POST /products/_bulk
+ { "update": {  "_id":201} }
+ { "doc": { "price":129}}
+ {"delete":{"_id":200}}
+
+ ************************************
+  Content-Type: application/x-ndjson  
+
+  Each line must end with a newline character (\n or \r\n)
+     This includes the last line
+
+  A failed sction will not affest other actions
+     Neither will the bulk request as a whole be aborted
+        The Order is the same as the actions in the request  
+
+     curl -H "Content-Type": application/x-ndjson" -XPost https://my-elastic-training.es.us-west1.gcp.cloud.es.io:9243/products/bulk/   --data-binary "@products-bulk.json"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
