@@ -1,4 +1,15 @@
 
 Spring Data Example 
 
-https://github.com/thombergs/code-examples/tree/master/spring-boot/spring-boot-elasticsearch
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/spring-boot-elasticsearch
+    https://reflectoring.io/spring-boot-elasticsearch/
+    
+    Managing Relationship
+    https://www.elastic.co/blog/managing-relations-inside-elasticsearch
+    Custom Analyzer
+    https://stackoverflow.com/questions/63810021/create-custom-analyzer-with-asciifolding-filter-in-spring-data-elasticsearch
+
+    Complete-guide-to-elasticsearch
+    https://github.com/codingexplained/complete-guide-to-elasticsearch
+    Date Maths
+    https://www.elastic.co/guide/en/elasticsearch/reference/current/common-options.html#date-math

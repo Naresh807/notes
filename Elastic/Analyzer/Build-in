@@ -1,0 +1,32 @@
+
+Standard analyzer
+. Splits text at word boundaries and removes punctuation
+   Done by the standard tokenizer
+. Lowercases letters with the lowercase token filters
+. Contains the stop token filter (disabled by default)
+
+Document  -------------->  Analyzer  ------------------------> Storage
+             [Character filters -> Tokenizer -> Token filters]
+             
+
+Simple Analyzer
+. Similiar to standard analyzer
+  . Spilits into tokens when encountering anything else than letters
+. Lowercases letters with the lowercase tokenizer
+  . Unusual and a performance hack
+
+
+Keyword analyzer
+ . No-op analyzer that leaves the input text intact
+    . It simply outputs it as a single token
+ . Used for keyword fiedls by default
+    . Used for exact matching
+
+ Pattern analyzer
+  . A regular expresssion is used to match token separators
+      . It should match whatever should split the text into tokens
+  . This analyzer is very flexible
+  . The default pattern matches all non-word characters (\W+)
+  . Lowercases letters by default
+            
+

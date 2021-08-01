@@ -1,0 +1,47 @@
+PUT /analyzer_test
+{
+    "settings":{
+        "analysis":{
+            "analyzer":{
+                "my_custom_analyzer":{
+                    "type":"custom",
+                    "char_filter":["html_strip"],
+                    "tokenizer":"standard",
+                    "filter":[
+                        "lowercase",
+                        "stop",
+                        "asciifolding"
+                    ]
+                }
+            }
+        }
+    }
+}
+
+PUT /analyzer_test
+{
+    "settings":{
+        "analysis":{
+            "filter":{
+                "danish_stop":{
+                    "type": "stop",
+                    "stopwords": "_danish_"
+                }
+            }    
+            "char_filter":{},
+            "tokenizer"{},
+            "analyzer":{
+                "my_custom_analyzer":{
+                    "type":"custom",
+                    "char_filter":["html_strip"],
+                    "tokenizer":"standard",
+                    "filter":[
+                        "lowercase",
+                        "danish_stop",
+                        "asciifolding"
+                    ]
+                }
+            }
+        }
+    }
+}

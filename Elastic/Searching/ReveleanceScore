@@ -1,0 +1,25 @@
+Relevance Scores
+
+Previoously based on 
+         TF/IDF
+ Term Frequency/Inverse Document Frequency
+
+
+ Currently using 
+       Okapi BM25
+
+
+
+ Term Frequency : How many time does the term apperar in the field for a given Document
+ Inverse Document Frequency : HOw often does the term appear within the index
+ Field-length norm : How long is the field ?
+
+
+ BM25 :
+   Better at handling stop word
+   NonLinear Term Frequency Saturation
+   Can be configured with parameters
+   
+
+
+  

@@ -1,0 +1,124 @@
+
+Term level queries should be used for exact match e.g. Date, Status, Keyword
+
+GET /products/_search
+{
+  "query": {
+    "term": {
+      "name": {
+        "value": "disney"
+      }
+    }
+  }
+}
+#### Multiple terms
+GET /products/_search
+{
+  "query": {
+    "terms": {
+      "name": [
+        "disney",
+        "toy"
+      ]
+    }
+  }
+}
+####Search by IDs 
+GET /products/_search
+{
+  "query":{
+    "ids": {
+      "values": [100,101,102]
+    }
+  }
+}
+####Range values
+GET /products/_search
+{
+  "query":{
+   "range": {
+     "quantity": {
+       "gte": 30,
+       "lte": 40
+     }
+   }
+  }
+}
+GET /products/_search
+{
+  "query":{
+   "range": {
+     "created": {
+       "gte": "01/01/2020",
+       "lte": "31/12/2020",
+       "format":"dd/mm/yyyy"
+     }
+   }
+  }
+}
+####Relative Dates 
+GET /products/_search
+{
+  "query":{
+   "range": {
+     "created": {
+       "gte": "01/01/2020||-1y-1d",  //-365d //-28w
+       "format":"dd/mm/yyyy"
+     }
+   }
+  }
+}
+Date rounding
+GET /products/_search
+{
+  "query":{
+   "range": {
+     "created": {
+       "gte": "01/01/2020||-1y/M",  //"now/M-1y"
+       "format":"dd/mm/yyyy"
+     }
+   }
+  }
+}
+####Matchin with non-nulls
+GET /products/_search
+{
+  "query":{
+    "exists":{
+        "field": "quantity"
+    }
+  }
+}
+####Prefix 
+GET /products/_search
+{
+  "query":{
+    "prefix":{
+        "name":{
+            "value":"Toy"
+        }
+    }
+  }
+}
+####Wildcard 
+GET /products/_search
+{
+  "query":{
+    "wildcard":{
+        "name":{
+            "value":"*Toy?"
+        }
+    }
+  }
+}
+####Regular expression
+GET /products/_search
+{
+  "query":{
+    "regexp":{
+        "name":{
+            "value":"regularExpression"
+        }
+    }
+  }
+}

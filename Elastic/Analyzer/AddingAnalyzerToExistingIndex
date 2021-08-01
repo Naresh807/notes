@@ -1,0 +1,35 @@
+PUT /analyzer_test/_settings
+{
+    
+        "analysis":{
+            "analyzer":{
+                "my_custom_analyzer":{
+                    "type":"custom",
+                    "char_filter":["html_strip"],
+                    "tokenizer":"standard",
+                    "filter":[
+                        "lowercase",
+                        "stop",
+                        "asciifolding"
+                    ]
+                }
+            }
+        }
+    
+}
+
+POST /analyzer_test/_close
+POST /analyzer_test/_open
+
+Open & Closed indices
+. An open index is available for indexing and search requests
+. A closed index will refuse requests
+    . Read and Write requests are blocked
+    . Necessary for performing some operations
+
+Dynamic and static settings 
+. Dynamic settings can be changes without closing the index first
+    . Requires no down time
+. Static settings require the index to be closed first
+    . The index will be briefly unavailable
+. Analysis settings are static settings    
